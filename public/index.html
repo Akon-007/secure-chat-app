@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure E2EE Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-900 text-slate-100">
+    <div class="min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-6xl bg-slate-800 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-[280px_1fr]">
+        <aside class="border-r border-slate-700 p-6">
+          <div class="mb-6">
+            <h1 class="text-2xl font-semibold">Secure Chat</h1>
+            <p class="text-slate-400 mt-2">E2EE with Web Crypto</p>
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-slate-300">Username</label>
+            <input id="usernameInput" class="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500" placeholder="Enter a name" />
+            <button id="registerBtn" class="mt-3 w-full rounded-2xl bg-cyan-500 py-3 text-slate-900 font-semibold hover:bg-cyan-400 transition">Join Chat</button>
+          </div>
+          <div>
+            <h2 class="text-sm uppercase tracking-wide text-slate-500">Users</h2>
+            <ul id="userList" class="mt-3 space-y-3"></ul>
+          </div>
+        </aside>
+
+        <main class="flex flex-col p-6">
+          <div class="mb-6 flex items-center justify-between">
+            <div>
+              <h2 id="chatHeader" class="text-xl font-semibold">No partner selected</h2>
+              <p id="chatStatus" class="text-sm text-slate-400 mt-1">Connect and choose a contact to start encrypted messaging.</p>
+            </div>
+          </div>
+          <div id="messages" class="flex-1 rounded-3xl border border-slate-700 bg-slate-950 p-5 overflow-y-auto space-y-4"></div>
+          <form id="messageForm" class="mt-5 flex gap-3">
+            <input id="messageInput" class="flex-1 rounded-3xl border border-slate-700 bg-slate-900 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500" placeholder="Type your secure message" disabled />
+            <button id="sendBtn" class="rounded-3xl bg-cyan-500 px-6 py-3 font-semibold text-slate-900 hover:bg-cyan-400 transition" disabled>Send</button>
+          </form>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
